@@ -1,12 +1,12 @@
 #include <iostream>
-enum {load=1, modify, save, exit};
-enum {sepia=1, black, negative, contour};
+enum {LOAD=1, MODIFY, SAVE, EXIT};
+enum {SEPIA=1, BLACK, NEGATIVE, CONTOUR, BACK};
 using namespace std;
 
 int main()
  {
     int decision;
-    bool EXIT = false;
+    bool exit = false;
     cout << "Graphics"<< endl;
 	cout << "What do you think about programming?" << endl;
 	do
@@ -20,52 +20,56 @@ int main()
 
 	switch( decision )
         {
-		case load:
+		case LOAD:
 			cout << "Loading file ..." << endl;
 			// powinna pojawic sie instrukcja wczytujjąca plik
-		case modify:
+			break; //alternatywa dla wczytania innej grafiki
+		case MODIFY:
 			cout << "Choose one efekt:" <<endl;
 			cout << "1: sepia," << endl;
 			cout << "2: black and white," << endl;
 			cout << "3: negative," << endl;
 			cout << "4: contour"<< endl;
+			cout << "5: back to options"<< endl;
             cin >> decision;
             switch( decision )
             {
-                case sepia:
+                case SEPIA:
                 cout << "Add efekt sepia..." << endl;
                 // powinna pojawic sie instrukcja modyfikująca plik
                 break;
-                case black:
+                case BLACK:
                 cout << "Add efekt black and white..." << endl;
                 // powinna pojawic sie instrukcja modyfikująca plik
                 break;
-                case negative:
+                case NEGATIVE:
                 cout << "Add efekt negative..." << endl;
                 // powinna pojawic sie instrukcja modyfikująca plik
                 break;
-                case contour:
+                case CONTOUR:
                 cout << "Add efekt contour..." << endl;
                 // powinna pojawic sie instrukcja modyfikująca plik
+                break;
+                case BACK:
                 break;
                 default: //else
                 cout << "Try one more time" << endl;
             }
             break;
-		case save:
+		case SAVE:
 			cout << "Saving ..." << endl;
 			// powinna pojawic sie instrukcja zapisująca plik
 			 break;
-        case exit:
+        case EXIT:
             {
             cout << " Thank you for the use of this program. " << endl;
-			EXIT = true;
+			exit = true;
 			break;
             }
 		default: // else
 			cout << "Try one more time" << endl; break;
         }
-    } while (EXIT == false);
+    } while (exit == false);
 	return 0;
 
 }
